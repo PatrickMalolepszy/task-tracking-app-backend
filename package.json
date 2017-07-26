@@ -5,19 +5,26 @@
   "description": "Backend for a stowpatch application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "dev": "node index.js",
     "start:server": "rm -rf ./build && webpack --config webpack.config.server.js"
   },
   "author": "Patrick Malolepszy",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.80.0",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.5.2",
+    "babel-preset-env": "^1.6.0",
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "mocha": "^3.4.2",
     "start-server-webpack-plugin": "^2.2.0",
+    "supertest": "^3.0.0",
     "webpack": "^3.0.0",
     "webpack-node-externals": "^1.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1"
   }
 }

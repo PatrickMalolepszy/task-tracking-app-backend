@@ -33,5 +33,6 @@ module.exports = {
   output: {
     path: path.join(__dirname, '.build'),
     filename: 'server.js'
-  }
-}
+  },
+  stats: {maxModules: Infinity, exclude: undefined}
+};
