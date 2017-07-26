@@ -5,6 +5,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import AWS from 'aws-sdk'
 import login from './login'
+import task from './task'
 
 AWS.config.update({region: 'us-west-2'});
 
@@ -15,6 +16,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use('/login', login);
+app.use('/task', task);
 
 app.post('/createTask', (req, res) => {
   console.log("In backend..");

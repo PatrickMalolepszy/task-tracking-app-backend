@@ -2,11 +2,10 @@ import request from "supertest";
 import {describe, it} from "mocha";
 import app from "../server/server";
 
-
 describe('POST /login', function() {
-  it('respond with json', function(done) {
+  it('responds OK', function(done) {
     request(app)
-      .get('/users')
+      .get('/login')
       .set('Accept', 'application/json')
       .expect(200)
       .end(function(err, res) {
