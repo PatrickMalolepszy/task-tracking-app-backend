@@ -1,14 +1,11 @@
 /**
  * Created by Patrick on 2017-07-07.
  */
-
 import express from 'express';
 import joi from 'joi';
-import {saveTask} from './dao/taskDao'
-
+import dao from './dao/taskDao'
 
 const router = express.Router();
-
 
 router.use((req, res, next) => {
   next();
@@ -49,7 +46,7 @@ router.post('/', (req, res) => {
   const schema = joi.object().keys({
     taskTitle: joi.string().alphanum().min(3).max(30).required(),
     description: joi.string().max(200),
-    taskColor: joi.string(),
+    taskColor: joi.string().max(8),
     estimatedWorkUnits: joi.number().integer().min(1).max(4),
   });
 
@@ -59,7 +56,7 @@ router.post('/', (req, res) => {
       message: 'BAD REQUEST ' + task.toString()
     })
   } else {
-    saveTask(task);
+    dao.saveTask(task);
     res.send({
       message: 'I am from the backend server - Thank you for your task: ' + task.toString()
     })
